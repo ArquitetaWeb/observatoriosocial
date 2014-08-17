@@ -187,7 +187,7 @@ exports.dadosParam = function(req, res) {
 	
 	console.log("all query strings : " + queryJson);
 	
-	if (type == "pai") {
+	if (type != "children") {
 		db.collection('dados', function(err, collection) {
 			//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
 			collection.find().toArray(function(err, items) {

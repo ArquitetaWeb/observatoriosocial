@@ -55,13 +55,23 @@
 		  //legend: 'none',
 		  //pieSliceText: 'label',
         };
-
+		
 		var chart;
 		if (dadosObject._graph == "pie") {
 			chart = new google.visualization.PieChart(this.$('#graph').get(0));
 		} else {
 			 chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
 		}
+		
+		function selectHandler() {
+          var selectedItem = chart.getSelection()[0];
+          if (selectedItem) {
+            var topping = data.getValue(selectedItem.row, 0);
+			location.href = "#graph/pie/children?codigo=" + topping;
+          }
+        }
+        google.visualization.events.addListener(chart, 'select', selectHandler); 
+		
         chart.draw(data, options);
     }
 });
