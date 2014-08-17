@@ -76,6 +76,7 @@ h5 {
 	}	
 	.graph {
 		height: 700px;
+		width: 100%;
 	}
 }
 
@@ -101,28 +102,16 @@ h5 {
 		display: none;
 	}
 	.graph {
-		height: 500px;
+		height: 800px;
+		width: 100%;
 	}
-	.row-fluid .span12 {
-		width: 70%;
-		text-align: left;
-		float: left;
-	}	
-	
-	.preco {
-		width: 30%;
-		text-align: right;
-		float: right;
-	}	
-	.preco > i {
-		display: none;
-	}	
 }
 
 @media (max-width: 516px) {
-	.thumbnail {
-		min-width: 170px;		
-	}		
+	.graph {
+		height: 700px;
+		width: 100%;
+	}
 }
 
 @media (max-width: 460px) {	
@@ -140,23 +129,9 @@ h5 {
 		display: none;
 	}
 	
-	.row-fluid .span12 {
-		width: 70%;
-		text-align: left;
-		float: left;
-	}	
-	
-	.preco {
-		width: 30%;
-		text-align: right;
-		float: right;
-	}	
-	.preco > i {
-		display: none;
-	}	
-	
 	.graph {
-		height: 200px;
+		height: 500px;
+		width: 50%;
 	}
 }
 
