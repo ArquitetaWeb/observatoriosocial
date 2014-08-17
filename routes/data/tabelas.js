@@ -126,7 +126,7 @@ exports.tabelaD = function() {
 exports.dadosCidade = function() {
 	return  [{
 				"codigo": "02.010.04.122.0002.2.001.",
-				"descricao": "Manutenção do Gabinete do Prefeito",
+				"descricao": "Manutençsdaasdasdão do Gabinete do Prefeito",
 				"origem": "0100",
 				"valorColuna1": {
 					"orcado": 100,
@@ -181,7 +181,7 @@ exports.dadosCidade = function() {
 			},
 			{
 				"codigo": "02.010.04.122.0002.2.001.",
-				"descricao": "Manutenção do Gabinete do Prefeito",
+				"descricao": "Manutenção do Gabinete do 123123Prefeito",
 				"origem": "0100",
 				"valorColuna1": {
 					"orcado": 100,
