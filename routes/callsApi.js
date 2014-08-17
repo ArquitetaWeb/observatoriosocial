@@ -138,7 +138,7 @@ exports.observatorio = function(req, res) {
 		});
 	});
 };
-
+/*
 exports.observatorioCodigo = function(req, res) {
 	var codigo = req.param("codigo");
 	console.log('Retrieving codigo ' + codigo););
@@ -148,7 +148,7 @@ exports.observatorioCodigo = function(req, res) {
 			res.send(items);
 		});
 	});
-};
+};*/
 
 dropTables = function() {
 	db.collection('tabelaA').drop();	
