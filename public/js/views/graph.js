@@ -6,7 +6,7 @@
 
     render:function () {
         $(this.el).html(this.template(this.model.toJSON()));		
-		google.load("visualization", "1", {callback:this.drawVisualization, packages:["corechart"]});		
+		google.load("visualization", "1", {callback:this.drawVisualization(this.model.toJSON()), packages:["corechart"]});		
         return this;
     },
 	
@@ -21,7 +21,7 @@
           ['Sleep',    7]
         ]);*/
 		
-		
+		alert(JSON.stringify(this.model.toJSON()));		
 		var jsonData = {
 						  "cols": [
 								{label: 'Ano',"type":"string"},

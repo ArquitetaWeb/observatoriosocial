@@ -103,7 +103,7 @@ exports.adddata = function(req, res) {
 	var consumoObject = req.body;	
 	var consumoStr =  JSON.stringify(consumoObject);
 	console.log('objeto: ' +consumoStr);
-	console.log('description: ' +consumoObject.description);
+	//console.log('description: ' +consumoObject.description);
 	db.collection('dados', function(err, collection) {
 		if (consumoStr == "{}") {
 			console.log('Error insert dados: object invalid retry');
@@ -112,7 +112,7 @@ exports.adddata = function(req, res) {
 		}
 		
 		if (err) {
-			console.log('Error insert feiras: ' + err);
+			console.log('Error insert dados: ' + err);
 			res.send(500, {'error': 'An error has occurred'});
 		} else {		
 			collection.insert(consumoObject, function (err, inserted) {
@@ -120,7 +120,7 @@ exports.adddata = function(req, res) {
 					console.log('Error insert dados: ' + err);
 					res.send(500, {'error': 'An error has occurred'});
 				} else {	
-					sendEmail(consumoObject.latitude.toString(), consumoObject.longitude.toString());
+					//sendEmail(consumoObject.latitude.toString(), consumoObject.longitude.toString());
 					console.log('success inserted consumomesa: ' + inserted);
 					res.send(inserted);					
 				}		
@@ -177,12 +177,18 @@ exports.dadosParamCustom = function(req, res) {
 	console.log("all query strings : " + queryJson);
 	
 	db.collection('dados', function(err, collection) {
-		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
+		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
 			items.forEach(function(entry) {
-				console.log(entry.descricao);
-			});
-			res.send(items);
+
+			var objectChild = [];
+				objectChild.push({v: "2014"});
+				objectChild.push({v: 123});
+				objectChild.push({v: 321});
+				
+				object.push({c: objectChild});
+			});			
+			res.send(object);
 		});
 	});
 };
