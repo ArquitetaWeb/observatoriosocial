@@ -129,7 +129,7 @@ exports.adddata = function(req, res) {
 	});
 };
 
-exports.observatorio = function(req, res) {
+exports.dados = function(req, res) {
 	db.collection('dados', function(err, collection) {
 		//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
 		collection.find().toArray(function(err, items) {
@@ -138,7 +138,7 @@ exports.observatorio = function(req, res) {
 		});
 	});
 };
-/*
+
 exports.observatorioCodigo = function(req, res) {
 	var codigo = req.param("codigo");
 	console.log('Retrieving codigo ' + codigo););
@@ -148,7 +148,7 @@ exports.observatorioCodigo = function(req, res) {
 			res.send(items);
 		});
 	});
-};*/
+};
 
 dropTables = function() {
 	db.collection('tabelaA').drop();	

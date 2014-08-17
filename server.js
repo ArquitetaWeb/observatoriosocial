@@ -17,10 +17,10 @@ app.configure(function () {
 
 // Feiras
 //app.get('/api/observatorio/:codigo', api.observatorioCodigo);
-app.get('/api/observatorio', api.observatorio);
+app.get('/api/dados', api.dados);
 
 // Adicionar dados para o banco
-app.post('/api/observatorio', api.adddata); // Adiciona itens via Json Object
+app.post('/api/dados', api.adddata); // Adiciona itens via Json Object
 
 // 
 app.get('/api/recreate', api.recriar); // recriar tabelas
