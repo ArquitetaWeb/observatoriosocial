@@ -16,9 +16,9 @@ app.configure(function () {
 });
 
 // Feiras
-app.get('/api/dados/:tabA/:tabB:/:tabC/:tabD', api.dadosParam);
-app.get('/api/dados/:tabA/:tabB/:tabC', api.dadosParam);
-app.get('/api/dados/:tabA/:tabB', api.dadosParam);
+//app.get('/api/dados/:tabA/:tabB:/:tabC/:tabD', api.dadosParam);
+//app.get('/api/dados/:tabA/:tabB/:tabC', api.dadosParam);
+//app.get('/api/dados/:tabA/:tabB', api.dadosParam);
 app.get('/api/dados/:tabA', api.dadosParam);
 app.get('/api/dados', api.dados);
 

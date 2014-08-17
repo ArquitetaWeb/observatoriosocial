@@ -140,8 +140,14 @@ exports.dados = function(req, res) {
 };
 
 exports.dadosParam = function(req, res) {
-	var codigo = req.param("codigo");
+	//var codigo = req.param("codigo");
+	var query = require('url').parse(req.url,true).query;
+	var codigo = query.codigo;
+	var tabA = query.tabA;
+
 	console.log('Retrieving codigo ' + codigo);
+	console.log('Retrieving tabA ' + tabA);
+	
 	db.collection('dados', function(err, collection) {
 		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
 		collection.find({'codigo': codigo}).toArray(function(err, items) {		
