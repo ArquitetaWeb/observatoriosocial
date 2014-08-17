@@ -209,19 +209,29 @@ exports.dadosParam = function(req, res) {
 	} else {
 		db.collection('dadosfilhos', function(err, collection) {
 			var object = [];		
-			
+			var descricaoSecretaria = "";
+						
 			collection.findOne(query, function(err, item) {		
 				var object = [];		
-				item.departamentoDTOList.forEach(function(entry) {					
-						var objectChild = [];
-						objectChild.push({v: entry.descricao});
-						objectChild.push({v: entry.realizado});
-						objectChild.push({v: entry.orcado});						
-						object.push({c: objectChild});											
-					}
-				);
-				res.setHeader('content-type', 'application/json');
-				res.send(object);
+				
+				db.collection('dados', function(err, collection2) {
+					collection2.findOne({secretaria: item.secretaria}, function(err, item2) {		
+						descricaoSecretaria = item2.descricao;
+						console.log("sadsdasda " + descricaoSecretaria);
+						
+						console.log("sadsda43443sda " + descricaoSecretaria);
+						item.departamentoDTOList.forEach(function(entry) {					
+							var objectChild = [];
+							objectChild.push({v: descricaoSecretaria, f: entry.descricao});
+							objectChild.push({v: entry.realizado});
+							objectChild.push({v: entry.orcado});						
+							object.push({c: objectChild});											
+						});
+						res.setHeader('content-type', 'application/json');
+						res.send(object);						
+					});
+				});				
+				// res.send(500, {'error': 'An error has occurred'});
 			});
 		});
 	}		

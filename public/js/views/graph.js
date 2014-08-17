@@ -42,15 +42,17 @@
 		//alert(JSON.stringify(dadosObject));
 		//alert(dadosObject._graph);
 		//alert(JSON.stringify(newObject));
+		//alert(newObject[0].c[0].f);
 		//alert(objCount);
 		//alert(JSON.stringify(dadosObject));
 		//alert(JSON.stringify(jsonData));
 						
-		var data = new google.visualization.DataTable(jsonData);
+		var data = new google.visualization.DataTable(jsonData);		
 		
 		var options = {
-          title: 'Secretaria Municipal de Saúde',
+          title: (window.location.href.indexOf("children") == -1) ? 'Orçamento Geral - Prefeitura Municipal' : newObject[0].c[0].v,
 		  is3D: true,
+		  //pointSize: 15,
 		  //pieHole: 0.4,
 		  //legend: 'none',
 		  //pieSliceText: 'label',
