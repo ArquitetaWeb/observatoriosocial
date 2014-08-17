@@ -180,14 +180,14 @@ exports.dadosParamCustom = function(req, res) {
 		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
 			items.forEach(function(entry) {
-
-			var objectChild = [];
-				objectChild.push({v: "2014"});
-				objectChild.push({v: 123});
-				objectChild.push({v: 321});
-				
-				object.push({c: objectChild});
-			});			
+				var objectChild = [];
+					objectChild.push({v: "2014"});
+					objectChild.push({v: entry.valorColuna1.orcado});
+					objectChild.push({v: entry.valorColuna1.reduzido});
+					
+					object.push({c: objectChild});
+				}
+			);			
 			res.send(object);
 		});
 	});
