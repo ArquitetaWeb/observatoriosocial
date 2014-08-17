@@ -234,8 +234,8 @@ populateTabelas = function() {
         collection.insert(tabelaData.tabelaD(), {safe:true}, function(err, result) {});
     });
 	
-	db.collection('dados', function(err, collection) {
+	/*db.collection('dados', function(err, collection) {
 		console.log("inserindo dados");
         collection.insert(tabelaData.dadosCidade(), {safe:true}, function(err, result) {});
-    });
+    });*/
 };
