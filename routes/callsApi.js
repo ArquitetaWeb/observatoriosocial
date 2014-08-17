@@ -210,16 +210,18 @@ exports.dadosParam = function(req, res) {
 		db.collection('dadosfilhos', function(err, collection) {
 		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
-				items.forEach(function(object) {
-						var objectChild = [];					
-						object.push({v: object.codigo});
-						object.push({v: object.departamentoDTOList.orcado});
-						object.push({v: object.departamentoDTOList.atual});
-						object.push({c: object});
-					}
-				);											
-			);					
-			res.send(items);
+			var object = [];		
+			items.forEach(function(entry) {					
+					var objectChild = [];
+					objectChild.push({v: entry.secretaria});
+					objectChild.push({v: entry.realizado});
+					objectChild.push({v: entry.orcado});						
+					object.push({c: objectChild});					
+				}
+			);	
+				
+			res.setHeader('content-type', 'application/json');
+			res.send(object);
 		});
 	});
 	}

@@ -63,6 +63,8 @@
 			 chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
 		}
 		
+		alert(objCount);
+		
 		function selectHandler() {
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
