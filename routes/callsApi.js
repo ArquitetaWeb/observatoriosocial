@@ -283,6 +283,7 @@ dropTables = function() {
 	db.collection('tabelaC').drop();	
 	db.collection('tabelaD').drop();		
 	db.collection('dados').drop();		
+	db.collection('dadosfilhos').drop();	
 }
 
 verifyTables = function() {
