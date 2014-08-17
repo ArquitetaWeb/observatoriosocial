@@ -16,7 +16,7 @@ app.configure(function () {
 });
 
 //
-app.get('/api/dados/:codigo', api.dadosParam); // api/dados/789?tabA=4561&tabB=123
+app.get('/api/dados/:parameters', api.dadosParam); // api/dados/789?tabA=4561&tabB=123
 app.get('/api/dados', api.dados);
 
 // Adicionar dados para o banco

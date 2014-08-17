@@ -141,24 +141,25 @@ exports.dados = function(req, res) {
 
 exports.dadosParam = function(req, res) {	
 	var query = require('url').parse(req.url,true).query;
-	var codigo = req.param("codigo");
+	var codigo = req.param("parameters"); // inutil kkk
 	var tabA = query.tabA;
 	var tabB = query.tabB;
 	var tabC = query.tabC;
 	var tabD = query.tabD;
-
+	var queryJson = JSON.stringify(query);
+	
 	console.log('Retrieving codigo ' + codigo);
 	console.log('Retrieving tabA ' + tabA);
 	console.log('Retrieving tabB ' + tabB);
 	console.log('Retrieving tabC ' + tabC);
 	console.log('Retrieving tabD ' + tabD);
 	
-	console.log("all query strings : " + JSON.stringify(query));
+	console.log("all query strings : " + queryJson);
 	
 	//https://observatoriomga.herokuapp.com/api/dados/789?tabA=4561&tabB=123
 	db.collection('dados', function(err, collection) {
 		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
-		collection.find({'codigo': codigo}).toArray(function(err, items) {		
+		collection.find(queryJson).toArray(function(err, items) {		
 			res.send(items);
 		});
 	});
