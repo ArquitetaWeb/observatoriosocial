@@ -190,7 +190,7 @@ exports.dadosParam = function(req, res) {
 	if (type != "children") {
 		db.collection('dados', function(err, collection) {
 			//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
-			collection.find().toArray(function(err, items) {
+			collection.find(query).toArray(function(err, items) {
 			
 				var object = [];		
 				items.forEach(function(entry) {					

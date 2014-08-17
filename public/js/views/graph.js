@@ -50,7 +50,7 @@
 		
 		var options = {
           title: 'Secretaria Municipal de Saúde',
-		  //is3D: true,
+		  is3D: true,
 		  //pieHole: 0.4,
 		  //legend: 'none',
 		  //pieSliceText: 'label',
