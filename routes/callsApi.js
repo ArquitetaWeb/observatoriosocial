@@ -159,7 +159,7 @@ exports.dadosParam = function(req, res) {
 	//https://observatoriomga.herokuapp.com/api/dados/789?tabA=4561&tabB=123
 	db.collection('dados', function(err, collection) {
 		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
-		collection.find(queryJson).toArray(function(err, items) {		
+		collection.find({'codigo': '3'}).toArray(function(err, items) {		
 			res.send(items);
 		});
 	});
