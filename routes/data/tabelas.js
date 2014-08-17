@@ -129,3 +129,4 @@ exports.dadosCidade = function() {
 				{ codigo: '4', descricao: 'Despesas de Capital' }
 			];
 };
+//[{"codigo":"02.010.04.122.0002.2.001.","descricao":"Manutenção do Gabinete do Prefeito","origem":"0100","valorColuna1":{"orcado":100,"suplementado":100,"reduzido":100,"atual":100},"periodo":{"empenhado":100,"liquidado":100,"pago":100},"exercicio":{"empenhado":100,"liquidado":100,"pago":100},"saldo":{"empenhado":100,"liquidado":100,"pago":100},"despesaList":[{"tabelaA":"3","tabelaB":"1","tabelaC":"90","tabelaD":"09","descricao":"SALÁRIO-FAMÍLIA","origem":"0100","valorColuna1":{"orcado":100,"suplementado":100,"reduzido":100,"atual":100},"periodo":{"empenhado":100,"liquidado":100,"pago":100},"exercicio":{"empenhado":100,"liquidado":100,"pago":100},"saldo":{"empenhado":100,"liquidado":100,"pago":100}}]}]
