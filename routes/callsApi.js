@@ -172,7 +172,8 @@ exports.dadosParamCustom = function(req, res) {
 	var query = require('url').parse(req.url,true).query;
 	var codigo = req.param("parameters"); // inutil kkk
 	var queryJson = JSON.stringify(query);
-	
+	//var codigo = req.param("parameters"); // inutil kkk
+	console.log(queryJson);
 	console.log('Retrieving codigo ' + codigo);	
 	console.log("all query strings : " + queryJson);
 	
@@ -185,7 +186,7 @@ exports.dadosParamCustom = function(req, res) {
 								var objectChild = [];					
 								objectChild.push({v: "2014"});
 								objectChild.push({v: entryChild.valorColuna1.orcado});
-								objectChild.push({v: entryChild.valorColuna1.reduzido});
+								objectChild.push({v: entryChild.valorColuna1.atual});
 								object.push({c: objectChild});
 							}
 						);											
@@ -193,11 +194,16 @@ exports.dadosParamCustom = function(req, res) {
 						var objectChild = [];
 						objectChild.push({v: "2014"});
 						objectChild.push({v: entry.valorColuna1.orcado});
-						objectChild.push({v: entry.valorColuna1.reduzido});						
+						objectChild.push({v: entry.valorColuna1.atual});						
 						object.push({c: objectChild});
 					}					
 				}
 			);			
+			
+			var objCount=0;
+			for(_obj in object) objCount++;
+			console.log(objCount);
+		
 			res.send(object);
 		});
 	});

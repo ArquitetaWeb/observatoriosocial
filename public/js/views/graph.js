@@ -6,7 +6,7 @@
     },
 
     render:function () {
-		dadosObject = this.model.toJSON();	
+		dadosObject = this.model.toJSON();
         $(this.el).html(this.template(this.model.toJSON()));		
 		google.load("visualization", "1", {callback:this.drawVisualization, packages:["corechart"]});		
         return this;
@@ -17,16 +17,16 @@
 		
 		var objCount=0;
 		for(_obj in dadosObject) objCount++;
-		alert(objCount);
+		//alert(objCount);
 		
 		var newObject = [];
-		for (i = 0; i < objCount-1; i++) { 
+		for (i = 0; i < objCount-2; i++) { 
 			newObject.push(dadosObject[i]);
 		}
 		
-		var objCount=0;
-		for(_obj in newObject) objCount++;
-		alert(objCount);
+		//var objCount=0;
+		//for(_obj in newObject) objCount++;
+		//alert(objCount);
 
 		var jsonData = {
 						  "cols": [
@@ -40,6 +40,7 @@
 						};
 						
 		//alert(JSON.stringify(dadosObject));
+		//alert(dadosObject._graph);
 		//alert(JSON.stringify(newObject));
 		//alert(objCount);
 		//alert(JSON.stringify(dadosObject));
@@ -55,8 +56,12 @@
 		  //pieSliceText: 'label',
         };
 
-        //var chart = new google.visualization.PieChart(this.$('#graph').get(0));
-		var chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
+		var chart;
+		if (dadosObject._graph == "pie") {
+			chart = new google.visualization.PieChart(this.$('#graph').get(0));
+		} else {
+			 chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
+		}
         chart.draw(data, options);
     }
 });

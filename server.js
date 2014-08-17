@@ -17,7 +17,7 @@ app.configure(function () {
 
 //
 
-app.get('/graph/:parameters', api.dadosParamCustom); 
+app.get('/graph/:graph/:parameters', api.dadosParamCustom); 
 app.get('/api/dados/custom/:parameters', api.dadosParamCustom); // api/dados/789?tabA=4561&tabB=123
 app.get('/api/dados/:parameters', api.dadosParam); // api/dados/789?tabA=4561&tabB=123
 app.get('/api/dados', api.dados);

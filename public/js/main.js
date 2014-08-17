@@ -4,7 +4,7 @@ var AppRouter = Backbone.Router.extend({
         ""                               : "home",
         "about"                          : "about",
 		"help"                           : "help",
-		"graph/:parameters"			     : "graph",
+		"graph/:graph/:parameters"	     : "graph",
 		"authenticated/:hash/:token"     : "authenticated"
     },
 
@@ -49,8 +49,8 @@ var AppRouter = Backbone.Router.extend({
 		});		
     },
 	
-	graph: function (parameters) {
-		var obj = new Graph({_parameters: parameters});
+	graph: function (graph, parameters) {
+		var obj = new Graph({_graph: graph, _parameters: parameters});
         obj.fetch({
 			success: function(){
 				$("#content").html(new GraphView({model: obj}).el);
