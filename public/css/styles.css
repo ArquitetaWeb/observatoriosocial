@@ -22,27 +22,6 @@ a.plain:hover {
     text-decoration: none;
 }
 
-.status-bar {
-    height: 60px;
-}
-
-.about-icon {
-    float: left;
-    margin-right: 12px;
-}
-
-.footer {
-    margin-top: 30px;
-    padding-top: 10px;
-    color: #999;
-    border-top: solid 1px #ddd;
-}
-
-.footer > p {
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
-}
-
 h5 {
     width: 100%;
     white-space: nowrap;
@@ -92,32 +71,15 @@ h5 {
 		min-width: 230px;
 		max-width: 530px;
 		height: 20px;		
-	}
+	},
 	
 	.thumbnails > li {		
 		float: none;
-	}	
+	},
 	
 	.thumbnail > img {
 		display: none;
 	}
-	.graph {
-		height: 500px;
-	}
-	.row-fluid .span12 {
-		width: 70%;
-		text-align: left;
-		float: left;
-	}	
-	
-	.preco {
-		width: 30%;
-		text-align: right;
-		float: right;
-	}	
-	.preco > i {
-		display: none;
-	}	
 }
 
 @media (max-width: 516px) {
@@ -131,38 +93,15 @@ h5 {
 		min-width: 230px;
 		max-width: 530px;
 		height: 20px;		
-	}
+	},
 	
 	.thumbnails > li {		
 		float: none;
-	}	
+	},	
 	
 	.thumbnail > img {
 		display: none;
-	}
-	
-	.row-fluid .span12 {
-		width: 70%;
-		text-align: left;
-		float: left;
-	}	
-	
-	.preco {
-		width: 30%;
-		text-align: right;
-		float: right;
-	}	
-	.preco > i {
-		display: none;
-	}	
-	
-	.graph {
-		height: 200px;
-	}
-}
-
-legend {
-    font-family: 'Andika';
+	},
 }
 
 .home-hero {
@@ -177,25 +116,13 @@ legend {
 @media only screen and ( max-width : 1000px ) {
     .home-hero {
         padding:100px;
-    }
-	
-	.graph {
-		height: 900px;
-	}
+    }	
 }
 
 @media only screen and ( max-width : 450px ) {
     .home-hero {
         padding:32px;
     }
-	.graph {
-		height: 200px;
-	}
-}
-
-.graph {
-	width: 100%;
-	height: 100%;
 }
 
 .home-hero .btn {
@@ -243,7 +170,7 @@ body {
 
 @media screen and (device-width: 384px) and (device-height: 592px) and (-webkit-device-pixel-ratio: 2) {
 	.graph {
-		height: 500px;
-		width: 500px;
+		height: 100px;
+		width: 100px;
 	}
 }
