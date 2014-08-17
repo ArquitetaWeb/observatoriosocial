@@ -208,23 +208,23 @@ exports.dadosParam = function(req, res) {
 		});
 	} else {
 		db.collection('dadosfilhos', function(err, collection) {
-		var object = [];		
-		collection.find(query).toArray(function(err, items) {		
 			var object = [];		
-			items.forEach(function(entry) {					
-					var objectChild = [];
-					objectChild.push({v: entry.secretaria});
-					objectChild.push({v: entry.realizado});
-					objectChild.push({v: entry.orcado});						
-					object.push({c: objectChild});					
-				}
-			);	
-				
-			res.setHeader('content-type', 'application/json');
-			res.send(object);
+			
+			collection.findOne(query, function(err, item) {		
+				var object = [];		
+				item.departamentoDTOList.forEach(function(entry) {					
+						var objectChild = [];
+						objectChild.push({v: entry.codigo});
+						objectChild.push({v: entry.realizado});
+						objectChild.push({v: entry.orcado});						
+						object.push({c: objectChild});											
+					}
+				);
+				res.setHeader('content-type', 'application/json');
+				res.send(object);
+			});
 		});
-	});
-	}
+	}		
 };
 
 exports.dadosParamCustom = function(req, res) {	

@@ -62,9 +62,7 @@
 		} else {
 			 chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
 		}
-		
-		alert(objCount);
-		
+				
 		function selectHandler() {
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
@@ -72,7 +70,10 @@
 			location.href = "#graph/pie/children?secretaria=" + topping;
           }
         }
-        google.visualization.events.addListener(chart, 'select', selectHandler); 
+		
+		if (window.location.href.indexOf("children") == -1) { 
+			google.visualization.events.addListener(chart, 'select', selectHandler); 
+		}
 		
         chart.draw(data, options);
     }
