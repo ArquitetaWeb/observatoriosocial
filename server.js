@@ -25,7 +25,7 @@ app.get('/api/dados', api.dados);
 // Adicionar dados para o banco
 app.post('/api/dados', api.adddata); // Adiciona itens via Json Object
 
-app.post('/api/child', api.addfilhos); // Adiciona itens via Json Object
+app.post('/api/children', api.addfilhos); // Adiciona itens via Json Object
 
 // 
 app.get('/api/recreate', api.recriar); // recriar tabelas
