@@ -59,11 +59,11 @@ sendEmail = function(lat, lng) {
 // DATA OBJECT
 var	tabelaData = require('./data/tabelas');
 
-var stringConexao = "ds027419.mongolab.com";
-var portaConexao = 27419;
+var stringConexao = "ds063449.mongolab.com";
+var portaConexao = 63449;
 
 var server = new Server(stringConexao, portaConexao, {auto_reconnect: true});	
-db = new Db('heroku_app27553602', server, {safe: true});	
+db = new Db('heroku_app28571941', server, {safe: true});	
 
 db.open(function(err, db) {
 	console.log("opening connection...");
