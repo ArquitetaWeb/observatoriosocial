@@ -71,10 +71,7 @@ h5 {
 		float: left;
 	}	
 	.graph {
-		min-width: 300px;	
-		max-width: 530px;		
-		width: 800px;
-		heigth: 400px;
+		height: 700px;
 	}
 }
 
@@ -105,10 +102,7 @@ h5 {
 		display: none;
 	}
 	.graph {
-		min-width: 300px;	
-		max-width: 530px;		
-		width: 800px;
-		heigth: 400px;
+		height: 500px;
 	}
 	.row-fluid .span12 {
 		width: 70%;
@@ -161,6 +155,10 @@ h5 {
 	.preco > i {
 		display: none;
 	}	
+	
+	.graph {
+		height: 200px;
+	}
 }
 
 legend {
@@ -180,12 +178,19 @@ legend {
     .home-hero {
         padding:100px;
     }
+	
+	.graph {
+		height: 900px;
+	}
 }
 
 @media only screen and ( max-width : 450px ) {
     .home-hero {
         padding:32px;
     }
+	.graph {
+		height: 200px;
+	}
 }
 
 .graph {
@@ -227,4 +232,7 @@ legend {
 .well h3 {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+.graph {
+	height: 500px;
 }

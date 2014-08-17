@@ -49,7 +49,7 @@
 		var data = new google.visualization.DataTable(jsonData);
 		
 		var options = {
-          title: 'AQUI FICA TITULO',
+          title: 'Secretaria Municipal de Saúde',
 		  //is3D: true,
 		  //pieHole: 0.4,
 		  //legend: 'none',
@@ -63,11 +63,15 @@
 			 chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
 		}
 				
+		var url = location.href;
+		var value = url.substring(url.lastIndexOf('/') + 1);
+		var newUrl = url.replace(value, 'children?secretaria=')
+			
 		function selectHandler() {
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var topping = data.getValue(selectedItem.row, 0);
-			location.href = "#graph/pie/children?secretaria=" + topping;
+			location.href = newUrl + topping;					
           }
         }
 		
