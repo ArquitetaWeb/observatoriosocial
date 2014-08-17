@@ -144,11 +144,18 @@ exports.dadosParam = function(req, res) {
 	var codigo = req.param("codigo");
 	var tabA = query.tabA;
 	var tabB = query.tabB;
+	var tabC = query.tabC;
+	var tabD = query.tabD;
 
 	console.log('Retrieving codigo ' + codigo);
 	console.log('Retrieving tabA ' + tabA);
 	console.log('Retrieving tabB ' + tabB);
+	console.log('Retrieving tabC ' + tabC);
+	console.log('Retrieving tabD ' + tabD);
 	
+	console.log("all query strings : " + JSON.stringify(query));
+	
+	//https://observatoriomga.herokuapp.com/api/dados/789?tabA=4561&tabB=123
 	db.collection('dados', function(err, collection) {
 		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
 		collection.find({'codigo': codigo}).toArray(function(err, items) {		
