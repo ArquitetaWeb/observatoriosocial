@@ -207,26 +207,18 @@ exports.dadosParam = function(req, res) {
 			});
 		});
 	} else {
-		db.collection('dadosfilho', function(err, collection) {
+		db.collection('dadosfilhos', function(err, collection) {
 		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
-			/*items.forEach(function(entry) {									
-					entry.despesaList.forEach(function(entryChild) {
-							var objectChild = [];					
-							objectChild.push({v: "2014"});
-							objectChild.push({v: entryChild.valorColuna1.orcado});
-							objectChild.push({v: entryChild.valorColuna1.atual});
-							object.push({c: objectChild});
-						}
-					);											
-									
-				}
-			);			
-			
-			var objCount=0;
-			for(_obj in object) objCount++;
-			console.log(objCount);*/
-		
+				items.forEach(function(object) {
+						var objectChild = [];					
+						object.push({v: object.codigo});
+						object.push({v: object.departamentoDTOList.orcado});
+						object.push({v: object.departamentoDTOList.atual});
+						object.push({c: object});
+					}
+				);											
+			);					
 			res.send(items);
 		});
 	});

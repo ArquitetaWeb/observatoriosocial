@@ -67,7 +67,7 @@
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var topping = data.getValue(selectedItem.row, 0);
-			location.href = "#graph/pie/children?codigo=" + topping;
+			location.href = "#graph/pie/children?secretaria=" + topping;
           }
         }
         google.visualization.events.addListener(chart, 'select', selectHandler); 
