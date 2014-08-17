@@ -145,7 +145,7 @@ exports.dadosParam = function(req, res) {
 	var tabA = query.tabA;
 	var tabB = query.tabB;
 	var tabC = query.tabC;
-	var tabD = query.tabD;
+	var tabD = query.tabD;	
 	var queryJson = JSON.stringify(query);
 	
 	console.log('Retrieving codigo ' + codigo);
@@ -155,6 +155,7 @@ exports.dadosParam = function(req, res) {
 	console.log('Retrieving tabD ' + tabD);
 	
 	console.log("all query strings : " + queryJson);
+	console.log("all query strings asdsa: " + query);
 	
 	//https://observatoriomga.herokuapp.com/api/dados/789?tabA=4561&tabB=123
 	db.collection('dados', function(err, collection) {
