@@ -155,9 +155,10 @@ exports.dadosParam = function(req, res) {
 	console.log('Retrieving tabD ' + tabD);
 	
 	console.log("all query strings : " + queryJson);
-	console.log("all query strings asdsa: " + query);
 	
 	//https://observatoriomga.herokuapp.com/api/dados/789?tabA=4561&tabB=123
+	//https://observatoriomga.herokuapp.com/api/dados/mga?descricao=Despesas%20de%20Capital
+	//https://observatoriomga.herokuapp.com/api/dados/mga?codigo=3
 	db.collection('dados', function(err, collection) {
 		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
 		collection.find(query).toArray(function(err, items) {		

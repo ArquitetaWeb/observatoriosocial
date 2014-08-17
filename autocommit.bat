@@ -5,5 +5,6 @@ set _my_datetime=#%mydate%%mytime%
 git add --all
 git commit -m "%_my_datetime%"
 git push heroku master
+git push origin master
 
 PAUSE
