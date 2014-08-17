@@ -1,0 +1,12 @@
+{
+    "name": "feiralivre",
+    "description": "Feira Livre Api - ArquitetaWeb",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.x",
+		"mongodb": "1.1.8",
+		"nodemailer": "0.5.15",
+		"open": "0.0.4"
+    }
+}
