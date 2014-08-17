@@ -150,7 +150,7 @@ exports.dadosCidade = function() {
 					"pago": 100
 				},
 				"despesaList": [{
-					"tabelaA": "3",
+					"tabelaA": "2",
 					"tabelaB": "1",
 					"tabelaC": "90",
 					"tabelaD": "09",

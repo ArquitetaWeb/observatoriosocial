@@ -1,4 +1,4 @@
-window.GraphView = Backbone.View.extend({
+﻿window.GraphView = Backbone.View.extend({
 
     initialize:function () {
         this.render();
@@ -24,15 +24,13 @@ window.GraphView = Backbone.View.extend({
 		
 		var jsonData = {
 						  "cols": [
-								{"type":"string"},
-								{"type":"number"}
+								{label: 'Ano',"type":"string"},
+								{label: 'Orçado',"type":"number"},
+								{label: 'Realizado',"type":"number"}
 							  ],
-						  "rows": [
-								{"c":[{"v":"Mushrooms","f":null},{"v":3,"f":null}]},
-								{"c":[{"v":"Onions","f":null},{"v":1,"f":null}]},
-								{"c":[{"v":"Olives","f":null},{"v":1,"f":null}]},
-								{"c":[{"v":"Zucchini","f":null},{"v":1,"f":null}]},
-								{"c":[{"v":"Pepperoni","f":null},{"v":2,"f":null}]}
+						  "rows": [								
+								{"c":[{"v":"2013"},{"v":277.9},{"v":281.6}]},
+								{"c":[{"v":"2014"},{"v":331.9},{"v":null}]}
 							  ]
 						};
 						
@@ -46,7 +44,8 @@ window.GraphView = Backbone.View.extend({
 		  //pieSliceText: 'label',
         };
 
-        var chart = new google.visualization.PieChart(this.$('#graph').get(0));
+        //var chart = new google.visualization.PieChart(this.$('#graph').get(0));
+		var chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
         chart.draw(data, options);
 
     }
