@@ -1,0 +1,30 @@
+@media (max-width: 626px) {	
+	.thumbnail {
+		min-width: 230px;
+		max-width: 530px;
+		height: 20px;		
+	}
+	
+	.thumbnails > li {		
+		float: none;
+	}	
+	
+	.thumbnail > img {
+		display: none;
+	}
+	
+	.row-fluid .span12 {
+		width: 70%;
+		text-align: left;
+		float: left;
+	}	
+	
+	.preco {
+		width: 30%;
+		text-align: right;
+		float: right;
+	}	
+	.preco > i {
+		display: none;
+	}	
+}

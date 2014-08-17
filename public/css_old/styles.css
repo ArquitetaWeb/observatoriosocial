@@ -69,9 +69,6 @@ h5 {
 	}
 	.thumbnails > li {	
 		float: left;
-	}	
-	.graph {
-		height: 700px;
 	}
 }
 
@@ -101,9 +98,7 @@ h5 {
 	.thumbnail > img {
 		display: none;
 	}
-	.graph {
-		height: 500px;
-	}
+	
 	.row-fluid .span12 {
 		width: 70%;
 		text-align: left;
@@ -155,10 +150,6 @@ h5 {
 	.preco > i {
 		display: none;
 	}	
-	
-	.graph {
-		height: 200px;
-	}
 }
 
 legend {
@@ -178,19 +169,14 @@ legend {
     .home-hero {
         padding:100px;
     }
-	
-	.graph {
-		height: 900px;
-	}
 }
 
 @media only screen and ( max-width : 450px ) {
-    
-	.graph {
-		height: 10px;
-		width: 10px;
-	}
+    .home-hero {
+        padding:32px;
+    }
 }
+
 
 .home-hero .btn {
     font-family: "arvo";
@@ -226,8 +212,4 @@ legend {
 .well h3 {
     margin-top: 0px;
     margin-bottom: 0px;
-}
-.graph {
-	height: 750px;
-	width: 100%;
 }
