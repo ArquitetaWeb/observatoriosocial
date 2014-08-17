@@ -131,7 +131,8 @@ exports.adddata = function(req, res) {
 
 exports.observatorio = function(req, res) {
 	db.collection('dados', function(err, collection) {
-		collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
+		//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
+		collection.find().toArray(function(err, items) {
 			res.setHeader('content-type', 'application/json');
 			res.send(items);
 		});
