@@ -139,10 +139,9 @@ exports.dados = function(req, res) {
 	});
 };
 
-exports.dadosParam = function(req, res) {
-	//var codigo = req.param("codigo");
+exports.dadosParam = function(req, res) {	
 	var query = require('url').parse(req.url,true).query;
-	var codigo = query.codigo;
+	var codigo = req.param("codigo");
 	var tabA = query.tabA;
 
 	console.log('Retrieving codigo ' + codigo);
