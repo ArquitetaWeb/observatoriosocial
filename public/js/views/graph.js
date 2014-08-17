@@ -30,7 +30,7 @@
 
 		var jsonData = {
 						  "cols": [
-								{label: 'Ano',"type":"string"},
+								{label: 'secretaria',"type":"string"},
 								{label: 'Orçado',"type":"number"},
 								{label: 'Realizado',"type":"number"}
 							  ],

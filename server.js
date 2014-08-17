@@ -18,9 +18,11 @@ app.configure(function () {
 //
 
 app.get('/graph/:graph/:parameters', api.dadosParam); 
-app.get('/api/dados/custom/:parameters', api.dadosParamCustom); // api/dados/789?tabA=4561&tabB=123
 app.get('/api/dados/:parameters', api.dadosParam); // api/dados/789?tabA=4561&tabB=123
+app.get('/api/data/:parameters', api.dataParam);
 app.get('/api/dados', api.dados);
+
+app.get('/api/dados/custom/:parameters', api.dadosParamCustom); // api/dados/789?tabA=4561&tabB=123
 
 // Adicionar dados para o banco
 app.post('/api/dados', api.adddata); // Adiciona itens via Json Object

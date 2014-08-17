@@ -195,7 +195,7 @@ exports.dadosParam = function(req, res) {
 				var object = [];		
 				items.forEach(function(entry) {					
 						var objectChild = [];
-						objectChild.push({v: entry.secretaria});
+						objectChild.push({v: entry.secretaria, f: entry.descricao});
 						objectChild.push({v: entry.realizado});
 						objectChild.push({v: entry.orcado});						
 						object.push({c: objectChild});					
@@ -214,7 +214,7 @@ exports.dadosParam = function(req, res) {
 				var object = [];		
 				item.departamentoDTOList.forEach(function(entry) {					
 						var objectChild = [];
-						objectChild.push({v: entry.codigo});
+						objectChild.push({v: entry.descricao});
 						objectChild.push({v: entry.realizado});
 						objectChild.push({v: entry.orcado});						
 						object.push({c: objectChild});											
@@ -222,6 +222,33 @@ exports.dadosParam = function(req, res) {
 				);
 				res.setHeader('content-type', 'application/json');
 				res.send(object);
+			});
+		});
+	}		
+};
+
+exports.dataParam = function(req, res) {	
+	var query = require('url').parse(req.url,true).query;
+	var type = req.param("parameters"); // inutil kkk	
+	var queryJson = JSON.stringify(query);	
+	
+	console.log("all query strings : " + queryJson);
+	
+	if (type != "children") {
+		db.collection('dados', function(err, collection) {
+			//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
+			collection.find(query).toArray(function(err, items) {				
+				res.setHeader('content-type', 'application/json');
+				res.send(items);
+			});
+		});
+	} else {
+		db.collection('dadosfilhos', function(err, collection) {
+			var object = [];		
+			
+			collection.findOne(query, function(err, item) {						
+				res.setHeader('content-type', 'application/json');
+				res.send(item);
 			});
 		});
 	}		
