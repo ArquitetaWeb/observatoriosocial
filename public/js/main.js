@@ -52,7 +52,9 @@ var AppRouter = Backbone.Router.extend({
 	graph: function (graph, parameters) {
 		var obj = new Graph({_graph: graph, _parameters: parameters});
         obj.fetch({
-			success: function(){
+			success: function(){		
+				$(".header").remove();
+				$(".footer").remove();			
 				$("#content").html(new GraphView({model: obj}).el);
 			}, 
 			error: function(e){

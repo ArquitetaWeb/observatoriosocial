@@ -210,7 +210,7 @@ exports.dadosParam = function(req, res) {
 		db.collection('dadosfilho', function(err, collection) {
 		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
-			items.forEach(function(entry) {									
+			/*items.forEach(function(entry) {									
 					entry.despesaList.forEach(function(entryChild) {
 							var objectChild = [];					
 							objectChild.push({v: "2014"});
@@ -225,9 +225,9 @@ exports.dadosParam = function(req, res) {
 			
 			var objCount=0;
 			for(_obj in object) objCount++;
-			console.log(objCount);
+			console.log(objCount);*/
 		
-			res.send(object);
+			res.send(items);
 		});
 	});
 	}
