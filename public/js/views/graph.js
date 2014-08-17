@@ -58,11 +58,13 @@
 		  //pieSliceText: 'label',
         };
 		
-		var chart;
+		var chart;		
 		if (dadosObject._graph == "pie") {
 			chart = new google.visualization.PieChart(this.$('#graph').get(0));
+		} else if (dadosObject._graph == "barra") {
+			chart = new google.visualization.BarChart(this.$('#graph').get(0));
 		} else {
-			 chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
+			chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
 		}
 				
 		var url = location.href;

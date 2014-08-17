@@ -10,7 +10,7 @@ var AppRouter = Backbone.Router.extend({
 
     initialize: function () {
         this.headerView = new HeaderView();
-        $('.header').html(this.headerView.el);
+        //$('.header').html(this.headerView.el);
     },
 
     home: function (id) {
@@ -53,8 +53,8 @@ var AppRouter = Backbone.Router.extend({
 		var obj = new Graph({_graph: graph, _parameters: parameters});
         obj.fetch({
 			success: function(){		
-				$(".header").remove();
-				$(".footer").remove();			
+				$(".header").hide();
+				$(".footer").hide();			
 				$("#content").html(new GraphView({model: obj}).el);
 			}, 
 			error: function(e){

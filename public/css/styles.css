@@ -236,3 +236,14 @@ legend {
 .graph {
 	height: 500px;
 }
+
+body {
+	padding-top: 0px;
+}
+
+@media screen and (device-width: 384px) and (device-height: 592px) and (-webkit-device-pixel-ratio: 2) {
+	.graph {
+		height: 500px;
+		width: 500px;
+	}
+}
