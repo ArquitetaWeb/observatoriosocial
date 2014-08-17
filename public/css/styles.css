@@ -128,7 +128,13 @@ h5 {
 	.thumbnail > img {
 		display: none;
 	}
-	
+			
+body {
+    overflow:hidden;
+}			
+	.container { 
+	  width: 980px;
+	}
 	.graph {
 		height: 500px;
 		width: 50%;
