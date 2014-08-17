@@ -15,18 +15,33 @@
 	drawVisualization:function () {
         console.log("In draw visualization");	
 		
+		var objCount=0;
+		for(_obj in dadosObject) objCount++;
+		alert(objCount);
+		
+		var newObject = [];
+		for (i = 0; i < objCount-1; i++) { 
+			newObject.push(dadosObject[i]);
+		}
+		
+		var objCount=0;
+		for(_obj in newObject) objCount++;
+		alert(objCount);
+
 		var jsonData = {
 						  "cols": [
 								{label: 'Ano',"type":"string"},
 								{label: 'Orçado',"type":"number"},
 								{label: 'Realizado',"type":"number"}
 							  ],
-						  "rows": [dadosObject[0]]
+						  "rows": newObject
 								//[ {"c":[{"v":"2013"},{"v":50564.92},{"v":281.6}]}]
 								//{"c":[{"v":"2014"},{"v":50564.92},{"v":4963.03}]}
 						};
 						
 		//alert(JSON.stringify(dadosObject));
+		//alert(JSON.stringify(newObject));
+		//alert(objCount);
 		//alert(JSON.stringify(dadosObject));
 		//alert(JSON.stringify(jsonData));
 						

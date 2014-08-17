@@ -179,13 +179,23 @@ exports.dadosParamCustom = function(req, res) {
 	db.collection('dados', function(err, collection) {
 		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
-			items.forEach(function(entry) {
-				var objectChild = [];
-					objectChild.push({v: "2014"});
-					objectChild.push({v: entry.valorColuna1.orcado});
-					objectChild.push({v: entry.valorColuna1.reduzido});
-					
-					object.push({c: objectChild});
+			items.forEach(function(entry) {					
+					if (codigo == "child") {
+						entry.despesaList.forEach(function(entryChild) {
+								var objectChild = [];					
+								objectChild.push({v: "2014"});
+								objectChild.push({v: entryChild.valorColuna1.orcado});
+								objectChild.push({v: entryChild.valorColuna1.reduzido});
+								object.push({c: objectChild});
+							}
+						);											
+					} else {
+						var objectChild = [];
+						objectChild.push({v: "2014"});
+						objectChild.push({v: entry.valorColuna1.orcado});
+						objectChild.push({v: entry.valorColuna1.reduzido});						
+						object.push({c: objectChild});
+					}					
 				}
 			);			
 			res.send(object);
