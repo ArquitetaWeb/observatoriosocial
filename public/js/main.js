@@ -4,6 +4,7 @@ var AppRouter = Backbone.Router.extend({
         ""                               : "home",
         "about"                          : "about",
 		"help"                           : "help",
+		"graph/:parameters"			     : "graph",
 		"authenticated/:hash/:token"     : "authenticated"
     },
 
@@ -46,11 +47,23 @@ var AppRouter = Backbone.Router.extend({
 				$("#content").html(new ErrorView().el);
 			}
 		});		
+    },
+	
+	graph: function (parameters) {
+		var obj = new Graph({_parameters: parameters});
+        obj.fetch({
+			success: function(){
+				$("#content").html(new GraphView({model: obj}).el);
+			}, 
+			error: function(e){
+				$("#content").html(new ErrorView().el);
+			}
+		});		
     }
 
 });
 
-utils.loadTemplate(['HomeView', 'HeaderView', 'AboutView', 'HelpView', 'ErrorView', 'AuthenticatedView'], function() {
+utils.loadTemplate(['HomeView', 'HeaderView', 'AboutView', 'HelpView', 'ErrorView', 'AuthenticatedView', 'GraphView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
