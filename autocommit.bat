@@ -4,7 +4,7 @@ For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
 set _my_datetime=#%mydate%%mytime%
 git add --all
 git commit -m "%_my_datetime%"
-git push heroku master
 git push origin master
+git push heroku master
 
 PAUSE
