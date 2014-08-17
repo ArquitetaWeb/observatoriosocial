@@ -16,7 +16,7 @@ app.configure(function () {
 });
 
 // Feiras
-//app.get('/api/observatorio/:codigo', api.observatorioCodigo);
+app.get('/api/dados/:codigo', api.dadosParam);
 app.get('/api/dados', api.dados);
 
 // Adicionar dados para o banco

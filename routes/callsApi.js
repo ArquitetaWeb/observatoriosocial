@@ -139,9 +139,9 @@ exports.dados = function(req, res) {
 	});
 };
 
-exports.observatorioCodigo = function(req, res) {
+exports.dadosParam = function(req, res) {
 	var codigo = req.param("codigo");
-	console.log('Retrieving codigo ' + codigo););
+	console.log('Retrieving codigo ' + codigo);
 	db.collection('dados', function(err, collection) {
 		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
 		collection.find({'codigo': codigo}).toArray(function(err, items) {		
