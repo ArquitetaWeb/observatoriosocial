@@ -129,50 +129,115 @@ exports.adddata = function(req, res) {
 	});
 };
 
+exports.addfilhos = function(req, res) {
+	var consumoObject = req.body;	
+	var consumoStr =  JSON.stringify(consumoObject);
+	console.log('objeto: ' +consumoStr);
+	//console.log('description: ' +consumoObject.description);
+	db.collection('dadosfilhos', function(err, collection) {
+		if (consumoStr == "{}") {
+			console.log('Error insert secretarias: object invalid retry');
+			res.send(500, {'error': 'Invalid object.'});
+			return;
+		}
+		
+		if (err) {
+			console.log('Error insert dadosfilhos: ' + err);
+			res.send(500, {'error': 'An error has occurred'});
+		} else {		
+			collection.insert(consumoObject, function (err, inserted) {
+				if (err) {
+					console.log('Error insert dadosfilhos: ' + err);
+					res.send(500, {'error': 'An error has occurred'});
+				} else {	
+					//sendEmail(consumoObject.latitude.toString(), consumoObject.longitude.toString());
+					console.log('success inserted consumomesa: ' + inserted);
+					res.send(inserted);					
+				}		
+			});	
+		}
+	});
+};
+
 exports.dados = function(req, res) {
 	db.collection('dados', function(err, collection) {
 		//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
 		collection.find().toArray(function(err, items) {
+		
+			var object = [];		
+			items.forEach(function(entry) {					
+					var objectChild = [];
+					objectChild.push({v: entry.secretaria});
+					objectChild.push({v: entry.realizado});
+					objectChild.push({v: entry.orcado});						
+					object.push({c: objectChild});					
+				}
+			);	
+			
 			res.setHeader('content-type', 'application/json');
-			res.send(items);
+			res.send(object);
 		});
 	});
 };
 
 exports.dadosParam = function(req, res) {	
 	var query = require('url').parse(req.url,true).query;
-	var codigo = req.param("parameters"); // inutil kkk
-	var tabA = query.tabA;
-	var tabB = query.tabB;
-	var tabC = query.tabC;
-	var tabD = query.tabD;	
-	var queryJson = JSON.stringify(query);
-	
-	console.log('Retrieving codigo ' + codigo);
-	console.log('Retrieving tabA ' + tabA);
-	console.log('Retrieving tabB ' + tabB);
-	console.log('Retrieving tabC ' + tabC);
-	console.log('Retrieving tabD ' + tabD);
+	var type = req.param("parameters"); // inutil kkk	
+	var queryJson = JSON.stringify(query);	
 	
 	console.log("all query strings : " + queryJson);
 	
-	//https://observatoriomga.herokuapp.com/api/dados/789?tabA=4561&tabB=123
-	//https://observatoriomga.herokuapp.com/api/dados/mga?descricao=Despesas%20de%20Capital
-	//https://observatoriomga.herokuapp.com/api/dados/mga?codigo=3
-	db.collection('dados', function(err, collection) {
-		//collection.find({'codigo': codigo}).sort({DataHoraPedido: -1}).limit(parseInt(qtdeRegistros)).toArray(function(err, items) {		
+	if (type == "pai") {
+		db.collection('dados', function(err, collection) {
+			//collection.find({'confirmed': true, 'ads': false}).toArray(function(err, items) {
+			collection.find().toArray(function(err, items) {
+			
+				var object = [];		
+				items.forEach(function(entry) {					
+						var objectChild = [];
+						objectChild.push({v: entry.secretaria});
+						objectChild.push({v: entry.realizado});
+						objectChild.push({v: entry.orcado});						
+						object.push({c: objectChild});					
+					}
+				);	
+				
+				res.setHeader('content-type', 'application/json');
+				res.send(object);
+			});
+		});
+	} else {
+		db.collection('dadosfilho', function(err, collection) {
+		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
-			res.send(items);
+			items.forEach(function(entry) {									
+					entry.despesaList.forEach(function(entryChild) {
+							var objectChild = [];					
+							objectChild.push({v: "2014"});
+							objectChild.push({v: entryChild.valorColuna1.orcado});
+							objectChild.push({v: entryChild.valorColuna1.atual});
+							object.push({c: objectChild});
+						}
+					);											
+									
+				}
+			);			
+			
+			var objCount=0;
+			for(_obj in object) objCount++;
+			console.log(objCount);
+		
+			res.send(object);
 		});
 	});
+	}
 };
-
 
 exports.dadosParamCustom = function(req, res) {	
 	var query = require('url').parse(req.url,true).query;
 	var codigo = req.param("parameters"); // inutil kkk
 	var queryJson = JSON.stringify(query);
-	//var codigo = req.param("parameters"); // inutil kkk
+	
 	console.log(queryJson);
 	console.log('Retrieving codigo ' + codigo);	
 	console.log("all query strings : " + queryJson);
@@ -180,6 +245,9 @@ exports.dadosParamCustom = function(req, res) {
 	db.collection('dados', function(err, collection) {
 		var object = [];		
 		collection.find(query).toArray(function(err, items) {		
+		//collection.distinct('codigo', query).toArray(function(err, items) {		
+		
+		//collection.distinct('codigo', query, function(err, items) {		
 			items.forEach(function(entry) {					
 					if (codigo == "child") {
 						entry.despesaList.forEach(function(entryChild) {

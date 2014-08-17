@@ -17,13 +17,15 @@ app.configure(function () {
 
 //
 
-app.get('/graph/:graph/:parameters', api.dadosParamCustom); 
+app.get('/graph/:graph/:parameters', api.dadosParam); 
 app.get('/api/dados/custom/:parameters', api.dadosParamCustom); // api/dados/789?tabA=4561&tabB=123
 app.get('/api/dados/:parameters', api.dadosParam); // api/dados/789?tabA=4561&tabB=123
 app.get('/api/dados', api.dados);
 
 // Adicionar dados para o banco
 app.post('/api/dados', api.adddata); // Adiciona itens via Json Object
+
+app.post('/api/child', api.addfilhos); // Adiciona itens via Json Object
 
 // 
 app.get('/api/recreate', api.recriar); // recriar tabelas
