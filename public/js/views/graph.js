@@ -50,7 +50,7 @@
 		var data = new google.visualization.DataTable(jsonData);		
 		
 		var options = {
-          title: (window.location.href.indexOf("children") == -1) ? 'Orçamento Geral - Prefeitura Municipal' : newObject[0].c[0].v,
+          title: (window.location.href.indexOf("children") == -1) ? 'Orçamento Geral das Secretarias - Prefeitura Municipal' : newObject[0].c[0].v,
 		  is3D: true,
 		  width: '100%',
 		  height: '100%',
@@ -105,7 +105,5 @@
 		else if (window.attachEvent) {
 			window.attachEvent('onresize', resizeHandler);
 		}
-
-
     }
 });

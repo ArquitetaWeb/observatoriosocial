@@ -11,3 +11,6 @@ body {
     width:100%;
     height:100%;
 }
+.preloader {
+    height:350px; background:url(../img/spinner.gif) center center no-repeat;
+}
