@@ -54,7 +54,6 @@
 		  is3D: true,
 		  width: '100%',
 		  height: '100%',
-		  'isStacked': true,
 		  chartArea: {
             left: "10%",
             top: "5%",
@@ -68,13 +67,16 @@
         };
 		
 		var chart;		
-		if (dadosObject._graph == "pie") {
+		if (window.location.href.indexOf("stacked") != -1) options['isStacked'] = true;
+		if (dadosObject._graph.indexOf("pie") == 0) {
 			chart = new google.visualization.PieChart(this.$('#graph').get(0));
-		} else if (dadosObject._graph == "barra") {
+		} else if (dadosObject._graph.indexOf("barra") == 0) {
 			chart = new google.visualization.BarChart(this.$('#graph').get(0));
+		} else if (dadosObject._graph.indexOf("line") == 0) {
+			chart = new google.visualization.LineChart(this.$('#graph').get(0));
 		} else {
 			chart = new google.visualization.ColumnChart(this.$('#graph').get(0));
-		}
+		}		
 				
 		var url = location.href;
 		var value = url.substring(url.lastIndexOf('/') + 1);
