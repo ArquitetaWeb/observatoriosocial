@@ -1,5 +1,4 @@
 window.utils = {
-
     // Asynchronously load templates located in separate .html files
     loadTemplate: function(views, callback) {
 
@@ -16,16 +15,5 @@ window.utils = {
         });
 
         $.when.apply(null, deferreds).done(callback);
-    },
-    showAlert: function(title, text, klass) {
-        $('.alert').removeClass("alert-error alert-warning alert-success alert-info");
-        $('.alert').addClass(klass);
-        $('.alert').html('<strong>' + title + '</strong> ' + text);
-        $('.alert').show();
-    },
-
-    hideAlert: function() {
-        $('.alert').hide();
     }
-
 };
