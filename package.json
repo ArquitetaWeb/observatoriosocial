@@ -1,6 +1,6 @@
 {
-    "name": "feiralivre",
-    "description": "Feira Livre Api - ArquitetaWeb",
+    "name": "observatoriosocial",
+    "description": "Observatorio Social Api - ArquitetaWeb",
     "version": "0.0.1",
     "private": true,
     "dependencies": {
